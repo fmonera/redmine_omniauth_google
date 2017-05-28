@@ -1,5 +1,5 @@
-require 'redmine'
-require_dependency 'redmine_omniauth_google/hooks'
+#require 'redmine'
+#require_dependency 'redmine_omniauth_google/hooks'
 
 Redmine::Plugin.register :redmine_omniauth_google do
   name 'Redmine Omniauth Google plugin'
@@ -16,3 +16,8 @@ Redmine::Plugin.register :redmine_omniauth_google do
     :allowed_domains => ""
   }, :partial => 'settings/google_settings'
 end
+
+unless Redmine::Plugin.installed?(:easy_extensions)
+  require_relative 'after_init'
+end
+
